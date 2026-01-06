@@ -1,0 +1,360 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+:root{
+    --header-main: #993232;
+    --btn-border: rgb(56, 219, 165);
+}
+
+
+.container{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: minmax(250px, 20%) 1fr;
+    grid-template-rows: 100px 1fr;
+}
+
+.header{
+    background-color: #24273a;
+    /* z-index: 1; */
+}   
+
+
+.header-wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    gap: 1%;
+    padding-left: 8%;
+    padding-right: 8%;
+    align-items: center;
+    
+}
+
+.svg{
+    height: 70%;
+    width: 4rem;
+}
+.svg svg{
+    height: 100%;
+    width: 100%;
+}
+
+.name{
+    height: 60%;
+    width: 4rem;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: clamp(20px, 1.8vw, 32px );
+}
+
+.dark-mode{
+    height: 50%;
+    width: clamp(24px, 2.3vw, 40px );
+    display: flex;
+    align-items: center;
+}
+
+body.daymode .header {
+  background-color: var(--header-main);
+  box-shadow: inset 0 -1px 10px 1px rgb(95, 18, 18);
+}
+
+body.daymode .main {
+  background-color: white;
+  color: black;
+}
+
+body.daymode .sidebar {
+  background-color: #dddcdc;
+  color: black;
+}
+
+body.daymode form input{
+    border: 2px solid var(--header-main);
+}
+
+body.daymode .create{
+    background-color: var(--header-main);
+}
+
+body.daymode #sun {
+  display: none;
+}
+
+body.daymode #moon {
+  display: block;
+}
+
+#moon{
+    display: none;
+}
+
+.github{
+    height: 40%;
+    width: clamp(24px, 2.3vw, 40px);
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.github svg {
+    display: block;
+    width: 100%; 
+    height: 100%;
+}
+
+
+.dark-mode:hover, .github:hover{
+    cursor: pointer;
+    filter: brightness(60%);
+}
+
+
+
+.sidebar{
+    background-color: #1e2030;
+    grid-row: 1 / span 2;
+    max-height: 100vh;
+    color: white;
+}
+
+
+.sidebar-wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20% 12%;
+    gap: 15%;
+}
+
+.library-stats{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* border: 1px solid white; */
+}
+
+.library{
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid white; */
+    height: 100%; 
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    row-gap: 6%;
+    /* height: 100%; */
+}
+
+form p{
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+
+.read-status{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+.nr, .r{
+    flex: 1;
+}
+
+
+.switch {
+  display: inline-block;
+  width: 43px;
+  height: 24px;
+}
+
+.slider {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: red; /* track color */
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: white;
+  border-radius: 15%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background-color: green;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(100%);
+}
+
+input[type="checkbox"] {
+  position: absolute;   
+  opacity: 0;           
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+.switch input:checked + .slider {
+  background-color: green;      
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+form input{
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid var(--btn-border)
+}
+
+.create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px; 
+    border-radius: 10px;
+    font-size: 2rem;
+    color: white;
+    background-color: var(--btn-border);
+    border: none;
+}
+
+.create:hover{
+    filter: brightness(120%);
+    cursor: pointer;
+}
+
+
+.main{
+    background-color: #181926;
+    grid-column: 2 / span 3;
+    overflow-y: auto;  
+}
+
+.main-wrapper{
+  padding: 4% 8%;
+}
+
+
+
+.card{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 20%));
+    grid-auto-flow: row;
+    grid-auto-rows: 300px;
+    row-gap: 30px;
+    justify-content: space-between;
+}
+
+
+
+.bookCard{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    background-color: rgb(100, 107, 107);
+    padding: 10%;
+    border-radius: 15px;
+}
+
+.removeBtn{
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border: none;
+}
+
+.toggleStatusBtn{
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border: none;
+}
+#only{
+    width: 80%;
+    height: 100%;
+}
+
+.up{
+    display: flex;
+    justify-content: space-between;
+}
+
+.middle{
+    display: flex;
+    justify-content: center;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+
+.title-output{
+
+}
+
+.year-output{
+
+}
+
+.author-output{
+
+}
+

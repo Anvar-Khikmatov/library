@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    
+<div class="container">
+    <div class="sidebar">
+        <div class="sidebar-wrapper">
+            <div class="library-stats">
+                <div class="library"> Library</div>
+                <div class="row">
+                    <span>Books</span>
+                    <span>10</span>
+                </div>
+                <div class="row">
+                    <span>Watched</span>
+                    <span>5</span>
+                </div>
+            </div>
+
+            <div class="form">
+                <form>
+                    <p>Add Books</p> 
+                    <div class="form-wrapper">
+                        <label for="title"> Title:</label>
+                        <input type="text" id="title-input">
+                        <!--    <br> -->
+                     </div>   
+                    
+                     <div class="form-wrapper">
+                        <label for="author"> Author:</label>
+                        <input type="text" id="author-input" >
+                        <!-- <br> -->
+                     </div>   
+                    
+                     <div class="form-wrapper">
+                        <label for="year"> Year:</label>
+                        <input type="number" id="year-input" maxlength="4"  min="1450" max="2025">
+                        <!-- <br> -->
+                     </div>   
+                        
+                    <div class="form-wrapper">
+                        <label for="poster">Poster URL:</label>
+                        <input type="url" id="poster" placeholder="https://example.com/book-cover.jpg">
+                        <!-- <br> -->
+                     </div>   
+                        
+                     <div class="form-wrapper">
+                        <label for="isRead"> Have you read the book yet?</label>
+                        <!-- <br> -->
+                    </div>
+
+                    <div class="form-wrapper">
+                        <div class="read-status">
+                            <span class="nr">Not read</span>
+
+                                <label class="switch">
+                                    <input type="checkbox" id="book-status">
+                                    <span class="slider"></span>
+                                </label>
+
+                            <span class="r">Read</span>
+                        </div>
+                    </div>
+                    
+                     <div class="form-wrapper">
+                        <button class="create">+</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="header">
+        <div class="header-wrapper">
+            <div class="svg">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-l</title><rect x="32" y="96" width="64" height="368" rx="16" ry="16" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></rect><line x1="112" y1="224" x2="240" y2="224" style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><line x1="112" y1="400" x2="240" y2="400" style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><rect x="112" y="160" width="128" height="304" rx="16" ry="16" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></rect><rect x="256" y="48" width="96" height="416" rx="16" ry="16" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></rect><path d="M422.46,96.11l-40.4,4.25c-11.12,1.17-19.18,11.57-17.93,23.1l34.92,321.59c1.26,11.53,11.37,20,22.49,18.84l40.4-4.25c11.12-1.17,19.18-11.57,17.93-23.1L445,115C443.69,103.42,433.58,94.94,422.46,96.11Z" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></path></g></svg>
+            </div>
+
+
+            <div class="name"> The <br>BookHaven</div>
+
+
+            <div class="dark-mode">
+                
+                    <svg id="sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="#ffffff" stroke-width="2" 
+                    stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    
+                    <svg  id="moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="#ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </div>
+
+
+            <div class="github">     
+                    <a href="https://github.com/Anvar-Khikmatov/library">
+                        <svg viewBox="0 0 20 20" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#fff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
+                </a>
+            </div>
+        </div>  
+    </div>
+
+
+    <div class="main">
+        <div class="main-wrapper">
+            <div class="card"></div>
+        </div>
+    </div>
+    
+    
+</div>    
+
+
+
+
+
+<template id="trashCan">       
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6.52381C3 6.12932 3.32671 5.80952 3.72973 5.80952H8.51787C8.52437 4.9683 8.61554 3.81504 9.45037 3.01668C10.1074 2.38839 11.0081 2 12 2C12.9919 2 13.8926 2.38839 14.5496 3.01668C15.3844 3.81504 15.4756 4.9683 15.4821 5.80952H20.2703C20.6733 5.80952 21 6.12932 21 6.52381C21 6.9183 20.6733 7.2381 20.2703 7.2381H3.72973C3.32671 7.2381 3 6.9183 3 6.52381Z" fill="#ffffffff"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5956 22H12.4044C15.1871 22 16.5785 22 17.4831 21.1141C18.3878 20.2281 18.4803 18.7749 18.6654 15.8685L18.9321 11.6806C19.0326 10.1036 19.0828 9.31511 18.6289 8.81545C18.1751 8.31579 17.4087 8.31579 15.876 8.31579H8.12404C6.59127 8.31579 5.82488 8.31579 5.37105 8.81545C4.91722 9.31511 4.96744 10.1036 5.06788 11.6806L5.33459 15.8685C5.5197 18.7749 5.61225 20.2281 6.51689 21.1141C7.42153 22 8.81289 22 11.5956 22ZM10.2463 12.1885C10.2051 11.7546 9.83753 11.4381 9.42537 11.4815C9.01321 11.5249 8.71251 11.9117 8.75372 12.3456L9.25372 17.6087C9.29494 18.0426 9.66247 18.3591 10.0746 18.3157C10.4868 18.2724 10.7875 17.8855 10.7463 17.4516L10.2463 12.1885ZM14.5746 11.4815C14.9868 11.5249 15.2875 11.9117 15.2463 12.3456L14.7463 17.6087C14.7051 18.0426 14.3375 18.3591 13.9254 18.3157C13.5132 18.2724 13.2125 17.8855 13.2537 17.4516L13.7537 12.1885C13.7949 11.7546 14.1625 11.4381 14.5746 11.4815Z" fill="#ffffffff"></path>
+    </svg>
+</template>
+
+<template id="openBook">
+    <svg id="only" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="#ffffffff">
+        <path d="M55.875,94.891c0,0-7.875-11.482-27.938-11.482C9.556,83.408,0,88.751,0,88.751V14.527c0,0,9.556-5.341,27.938-5.466C48,8.926,55.875,20.667,55.875,20.667V94.891z"/>
+        <path d="M64.026,94.891c0,0,7.875-11.482,27.938-11.482c18.382,0,27.938,5.343,27.938,5.343V14.527c0,0-9.556-5.341-27.938-5.466C71.901,8.926,64.026,20.667,64.026,20.667V94.891z"/>
+        <path d="M60.091,118c0,0-12.091-17.425-32.153-17.425C9.556,100.575,0,105.918,0,105.918v-8.893c0,0,9.556-5.341,27.938-5.466C48,91.424,60.091,109.107,60.091,109.107V118z"/>
+        <path d="M60.092,118c0,0,12.091-17.425,32.153-17.425c18.382,0,27.938,5.343,27.938,5.343v-8.893c0,0-9.556-5.341-27.938-5.466c-20.062-0.136-32.153,17.548-32.153,17.548V118z"/>
+    </svg>
+</template>
+
+
+<template id="closedBook">
+    <svg id="only" fill="#ffffffff"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 400 400"      >
+        <path d="M347.766,  335.73c0,18.91-12.314,35.001-29.35,40.669V246.652h-19.289c-25.395,0-46.053-20.658-46.053-46.053 c0-25.396,  20.658-46.055,46.053-46.055h19.289V23.601c17.033,5.668,29.35,21.758,29.35,40.669v90.276h21.422V64.27 c0-35.493-28.771-64.27-64.27-64.27H95.075c-35.496,0-64.27,28.776-64.27,64.27v271.46c0,35.492,28.773,64.27,64.27,64.27h209.843 c35.496,0,64.27-28.776,64.27-64.27v-89.078h-21.422V335.73z"></path> <path d="M365.963,171.406h-62.354c-10.223,0-19.223,5.303-24.414,13.298c8.033,0.828,14.297,7.614,14.297,15.864 c0,8.223-6.223,14.986-14.215,15.852c5.201,7.926,14.162,13.174,24.332,13.174h62.354c1.785,0,3.232-1.447,3.232-3.232V174.64 C369.195,172.854,367.748,171.406,365.963,171.406z"></path> 
+    </svg>
+</template>
+
+
+    <script src="script.js"></script> 
+</body>
+</html>
