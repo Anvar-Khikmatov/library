@@ -301,16 +301,20 @@ form input{
 .bookCard{
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     height: 100%;
     width: 100%;
     border: 1px solid black;
     background-color: rgb(100, 107, 107);
     padding: 10%;
     border-radius: 15px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRak-7tVzweDKazAe9v_BzMr18uehtvqcTqpg&s" )  
+}
+.bookCard:hover{
+    filter: blur(5px);
 }
 
-.removeBtn{
+.removeBtn{ 
     height: 24px;
     width: 24px;
     background-color: transparent;

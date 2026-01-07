@@ -5,6 +5,8 @@ const bookYear = document.querySelector('#year-input');
 const bookStatus = document.getElementById('book-status');
 const card = document.querySelector('.card');
 const darkMode = document.querySelector('.dark-mode');
+const totalBooks = document.body.querySelector('.total-books');
+const readBooks = document.body.querySelector('.read-books');
 
 
 class Book {
@@ -19,7 +21,6 @@ class Book {
         this.status = !this.status;
     } 
 }
-
 
 
 const myLibrary = [
@@ -39,6 +40,42 @@ const myLibrary = [
     )
 ];
 
+showTotalBooks();
+showReadBooks();
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('daymode')
+})
+
+
+createBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    addBookToLibrary(bookTitle.value, bookAuthor.value, bookYear.value, bookStatus.checked);
+    showBooksfromArray();
+})
+
+
+function showTotalBooks() {
+    totalBooks.textContent = myLibrary.length;
+}
+
+function showReadBooks() {
+    let alreadyRead = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].status == true) {
+            alreadyRead++;
+       }
+    }
+    readBooks.textContent = alreadyRead;
+}
+
+function addBookToLibrary(title, author, year, bookStatus) {
+    const bookID = crypto.randomUUID();
+    const book = new Book(title, author, year, bookStatus, bookID)
+    myLibrary.unshift(book);
+    showTotalBooks();
+    showReadBooks();
+}
 
 
 function createRemoveBtn() {
@@ -50,7 +87,6 @@ function createRemoveBtn() {
 function createViewBtn(status) {
     const readBtnTempalte = document.getElementById('openBook');
     const unreadBtnTempalte = document.getElementById('closedBook');
-   
     if (status == true) {
         return readBtnTempalte.content.cloneNode(true).firstElementChild;
     } else {
@@ -65,26 +101,6 @@ function renderViewBtn(button, status) {
 }
 
 
-darkMode.addEventListener('click', () => {
-    document.body.classList.toggle('daymode')
-})
-
-
-createBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    addBookToLibrary(bookTitle.value, bookAuthor.value, bookYear.value, bookStatus.checked);
-    console.log(myLibrary);
-    showBooksfromArray();
-})
-
-
-function addBookToLibrary(title, author, year, bookStatus) {
-    const bookID = crypto.randomUUID();
-    const book = new Book(title, author, year, bookStatus, bookID)
-    myLibrary.unshift(book)
-}
-
-
 
 function showBooksfromArray() {
     card.innerHTML = "";
@@ -92,6 +108,9 @@ function showBooksfromArray() {
         const bookCard = document.createElement("div");
         bookCard.classList.add("bookCard"); 
         
+        const img = document.createElement('img');
+        
+
         const up = document.createElement('div');
         up.classList.add('up');
 
@@ -110,6 +129,8 @@ function showBooksfromArray() {
             const removeBookIndex = myLibrary.findIndex(book => book.id === removeBookBtn.dataset.id);
             myLibrary.splice(removeBookIndex, 1);
             bookCard.remove();
+            showTotalBooks();
+            showReadBooks();
         })
         
         const toggleStatusBtn = document.createElement("button");
@@ -119,6 +140,7 @@ function showBooksfromArray() {
         toggleStatusBtn.addEventListener('click', () => {
             b.toggleStatus();
             renderViewBtn(toggleStatusBtn, b.status);
+            showReadBooks();
         })
 
         const titleOutput = document.createElement("div");
@@ -137,7 +159,7 @@ function showBooksfromArray() {
         up.append(removeBookBtn, toggleStatusBtn);
         middle.append(titleOutput);
         bottom.append(yearOutput, authorOutput);
-        bookCard.append(up, middle, bottom);
+        bookCard.append(img, up, middle, bottom);
         card.append(bookCard);
     })
     
