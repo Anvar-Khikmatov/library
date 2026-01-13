@@ -299,6 +299,8 @@ form input{
 
 
 .bookCard{
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -308,11 +310,52 @@ form input{
     background-color: rgb(100, 107, 107);
     padding: 10%;
     border-radius: 15px;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRak-7tVzweDKazAe9v_BzMr18uehtvqcTqpg&s" )  
 }
-.bookCard:hover{
-    filter: blur(5px);
+
+
+.book-cover{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: filter 0.4s ease;
 }
+
+
+.book-info{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5%;
+  transition: opacity 0.5s ease;
+  background: rgba(35, 34, 34, 0.5); 
+  color: rgb(255, 255, 255);
+}
+
+.no-cover :is(.removeBtn, .year-output, .author-output){
+    opacity: 0;
+    transition: opacity 0.4s  ease;
+}
+.no-cover:hover :is(.removeBtn, .year-output, .author-output, .toggleStatusBtn) { 
+    opacity: 1;
+}
+
+
+.has-cover :is(.removeBtn, .title-output, .year-output, .author-output){
+    opacity: 0;
+    transition: opacity 0.4s  ease;
+}
+.has-cover:hover :is(.removeBtn, .title-output, .year-output, .author-output, .toggleStatusBtn){
+    opacity: 1;
+}
+
+.has-cover:hover .book-cover{
+    filter: blur(4px)
+    
+}
+
 
 .removeBtn{ 
     height: 24px;
@@ -326,6 +369,8 @@ form input{
     width: 24px;
     background-color: transparent;
     border: none;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
 }
 #only{
     width: 80%;
@@ -351,7 +396,7 @@ form input{
 
 
 .title-output{
-
+    
 }
 
 .year-output{

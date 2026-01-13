@@ -2,6 +2,7 @@ const createBtn = document.querySelector('.create');
 const bookTitle = document.querySelector('#title-input');
 const bookAuthor = document.querySelector('#author-input');
 const bookYear = document.querySelector('#year-input');
+const bookPoster = document.querySelector('#poster');
 const bookStatus = document.getElementById('book-status');
 const card = document.querySelector('.card');
 const darkMode = document.querySelector('.dark-mode');
@@ -10,10 +11,11 @@ const readBooks = document.body.querySelector('.read-books');
 
 
 class Book {
-    constructor(title, author, year, status, id) {
+    constructor(title, author, year, poster, status, id) {
         this.title = title;
         this.author = author;
         this.year = year;
+        this.poster = poster;   
         this.status = status;
         this.id = id;
     }
@@ -23,19 +25,30 @@ class Book {
 }
 
 
+
 const myLibrary = [
     new Book(
         "A Song of Ice and Fire",
         "George R. R. Martin",
         1998,
+        "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg/250px-A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg",
         false,
         crypto.randomUUID()
     ),
     new Book(
-        "The Hobbit",   
+        "The Hobbit",
         "J.R.R. Tolkien",
         2002,
+        "https://d3525k1ryd2155.cloudfront.net/f/344/103/9780261103344.IN.0.m.jpg",
         true,
+        crypto.randomUUID()
+    ),
+    new Book(
+        "Watch Us Fall",
+        "Christina Kovac",
+        2025,
+        // poster,
+        false,
         crypto.randomUUID()
     )
 ];
@@ -50,8 +63,9 @@ darkMode.addEventListener('click', () => {
 
 createBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    addBookToLibrary(bookTitle.value, bookAuthor.value, bookYear.value, bookStatus.checked);
+    addBookToLibrary(bookTitle.value, bookAuthor.value, bookYear.value, bookPoster.value, bookStatus.checked);
     showBooksfromArray();
+    
 })
 
 
@@ -108,15 +122,24 @@ function showBooksfromArray() {
         const bookCard = document.createElement("div");
         bookCard.classList.add("bookCard"); 
         
-        const img = document.createElement('img');
+        const bookCover = document.createElement("div");
+        bookCover.classList.add('book-cover');
         
+        if (b.poster) {
+            bookCard.classList.add("has-cover");
+            bookCover.style.backgroundImage = `url(${ b.poster })`;
+        } else {
+            bookCard.classList.add("no-cover");
+        }
+        
+
+        const bookInfo = document.createElement("div");
+        bookInfo.classList.add("book-info"); 
 
         const up = document.createElement('div');
         up.classList.add('up');
-
         const middle = document.createElement('div');
         middle.classList.add('middle');
-
         const bottom = document.createElement('div');
         bottom.classList.add('bottom');
 
@@ -159,7 +182,8 @@ function showBooksfromArray() {
         up.append(removeBookBtn, toggleStatusBtn);
         middle.append(titleOutput);
         bottom.append(yearOutput, authorOutput);
-        bookCard.append(img, up, middle, bottom);
+        bookInfo.append(up, middle, bottom);       
+        bookCard.append(bookCover, bookInfo);
         card.append(bookCard);
     })
     
