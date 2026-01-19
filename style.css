@@ -507,7 +507,7 @@ form input{
     grid-row: 3;
     height: auto;
     overflow-y: visible;
-    padding-bottom: 30vh;
+    padding-bottom: 15vh;
   }
     .main-wrapper{
        padding: 10% 8%;
@@ -518,10 +518,19 @@ form input{
         grid-template-columns: repeat(3, clamp(140px, 18vw, 200px));
         grid-auto-rows: clamp(180px, 37vh, 250px);
     }
+
+    .middle{
+    font-size: clamp(14px, 1.7vw, 16px);
+    }
+
+    .bottom{
+        font-size: clamp(11px, 1.7vw, 15px);
+    }
 }
 
 
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
     .card{
         grid-template-columns: repeat(2, clamp(140px, 40vw, 200px));
         grid-auto-rows: clamp(180px, 30vh, 250px);
@@ -529,4 +538,59 @@ form input{
 }
 
 
+                /* landscape */
 
+@media (max-width: 992px) and (orientation: landscape) {
+  .container {
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto auto; 
+  }
+  
+  .header { 
+    grid-column: 1; 
+    grid-row: 1; 
+    height: 70px;
+  }
+
+  .sidebar {    
+    grid-column: 1; 
+    grid-row: 2;
+    min-height: fit-content; 
+    overflow-y: visible; 
+  }
+  
+  .sidebar-wrapper {
+    padding: 4% 8%;  
+    row-gap: 2vh;
+  }
+  
+  .main { 
+    grid-column: 1; 
+    grid-row: 3;
+  }
+
+  .card {    
+    grid-template-columns: repeat(3, minmax(200px, 215px));
+    grid-auto-rows: minmax(280px, 315px);  
+  }
+
+  .buttons button{
+    height: 8vh;
+  }
+
+  .middle{
+    font-size: clamp(14px, 1.7vw, 17px);
+  }
+
+  .bottom{
+    font-size: clamp(12px, 1.7vw, 16px);
+  }
+}
+
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .card {
+    grid-template-columns: repeat(2, minmax(150px, 190px));
+    grid-auto-rows: minmax(230px, 270px);
+  }
+}

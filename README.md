@@ -1,7 +1,7 @@
 # 📚 BookHaven Library
 
 ## 🚀 Live Demo
-[sooon...]
+[View Live Demo](https://anvar-khikmatov.github.io/library/)
 
 ## 📖 About
 A personal book tracking web app with dark/light mode, built with vanilla JavaScript.
