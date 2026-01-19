@@ -538,6 +538,7 @@ form input{
 }
 
 
+
                 /* landscape */
 
 @media (max-width: 992px) and (orientation: landscape) {
@@ -550,6 +551,7 @@ form input{
     grid-column: 1; 
     grid-row: 1; 
     height: 70px;
+    position: static;
   }
 
   .sidebar {    
@@ -570,12 +572,12 @@ form input{
   }
 
   .card {    
-    grid-template-columns: repeat(3, minmax(200px, 215px));
-    grid-auto-rows: minmax(280px, 315px);  
+    grid-template-columns: repeat(3, minmax(140px, 150px));
+    grid-auto-rows: minmax(195px, 210px);  
   }
 
   .buttons button{
-    height: 8vh;
+    height: 4vw;
   }
 
   .middle{
