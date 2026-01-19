@@ -507,7 +507,7 @@ form input{
     grid-row: 3;
     height: auto;
     overflow-y: visible;
-    padding-bottom: 15vh;
+    padding-bottom: 13vh;
   }
     .main-wrapper{
        padding: 10% 8%;
@@ -563,8 +563,11 @@ form input{
   
   .sidebar-wrapper {
     padding: 4% 8%;  
-    row-gap: 2vh;
+    row-gap: 5vw;
   }
+    .form form{
+        row-gap: 3vw;
+    }
   
   .main { 
     grid-column: 1; 
