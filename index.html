@@ -7,79 +7,12 @@
     <title>Library</title>
 </head>
 <body>
-    
+
 <div class="container">
-    <div class="sidebar">
-        <div class="sidebar-wrapper">
-            <div class="library-stats">
-                <div class="library"> Library</div>
-                <div class="row">
-                    <span>Books</span>
-                    <span class="total-books"></span>
-                </div>
-                <div class="row">
-                    <span>Read</span>
-                    <span class="read-books"></span>
-                </div>
-            </div>
-
-            <div class="form">
-                <form>
-                    <p>Add Books</p> 
-                    <div class="form-wrapper">
-                        <label for="title"> Title:</label>
-                        <input type="text" id="title-input">
-                        <!--    <br> -->
-                     </div>   
-                    
-                     <div class="form-wrapper">
-                        <label for="author"> Author:</label>
-                        <input type="text" id="author-input" >
-                        <!-- <br> -->
-                     </div>   
-                    
-                     <div class="form-wrapper">
-                        <label for="year"> Year:</label>
-                        <input type="number" id="year-input" maxlength="4"  min="1450" max="2025">
-                        <!-- <br> -->
-                     </div>   
-                        
-                    <div class="form-wrapper">
-                        <label for="poster">Poster URL:</label>
-                        <input type="url" id="poster" placeholder="https://example.com/book-cover.jpg">
-                        <!-- <br> -->
-                     </div>   
-                        
-                     <div class="form-wrapper">
-                        <label for="isRead"> Have you read the book yet?</label>
-                        <!-- <br> -->
-                    </div>
-
-                    <div class="form-wrapper">
-                        <div class="read-status">
-                            <span class="nr">Not read</span>
-
-                                <label class="switch">
-                                    <input type="checkbox" id="book-status">
-                                    <span class="slider"></span>
-                                </label>
-
-                            <span class="r">Read</span>
-                        </div>
-                    </div>
-                    
-                     <div class="form-wrapper">
-                        <button class="create">+</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
 
     <div class="header">
         <div class="header-wrapper">
-            <div class="svg">
+            <div class="book-svg">
                 <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-l</title><rect x="32" y="96" width="64" height="368" rx="16" ry="16" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></rect><line x1="112" y1="224" x2="240" y2="224" style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><line x1="112" y1="400" x2="240" y2="400" style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><rect x="112" y="160" width="128" height="304" rx="16" ry="16" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></rect><rect x="256" y="48" width="96" height="416" rx="16" ry="16" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></rect><path d="M422.46,96.11l-40.4,4.25c-11.12,1.17-19.18,11.57-17.93,23.1l34.92,321.59c1.26,11.53,11.37,20,22.49,18.84l40.4-4.25c11.12-1.17,19.18-11.57,17.93-23.1L445,115C443.69,103.42,433.58,94.94,422.46,96.11Z" style="fill:none;stroke:#ffffff;stroke-linejoin:round;stroke-width:32px"></path></g></svg>
             </div>
 
@@ -105,6 +38,71 @@
     </div>
 
 
+    <div class="sidebar"> 
+        <div class="sidebar-wrapper">
+            <div class="library-stats">
+                <div class="library"> Library</div>
+                <div class="row">
+                    <span>Books</span>
+                    <span class="total-books"></span>
+                </div>
+                <div class="row">
+                    <span>Read</span>
+                    <span class="read-books"></span>
+                </div>
+            </div>
+
+            <div class="form">
+                <form>
+                    <p>Add Books</p> 
+                    <div class="form-wrapper">
+                        <label for="title"> Title:</label>
+                        <input type="text" id="title-input" required minlength="1" maxlength="100">
+                    </div>   
+                    
+                    <div class="form-wrapper">
+                        <label for="author"> Author:</label>
+                        <input type="text" id="author-input" required minlength="1" maxlength="50">
+                    </div>   
+                    
+                     <div class="form-wrapper">
+                        <label for="year"> Year:</label>
+                        <input type="number" id="year-input" maxlength="4"  required min="1250" max="2026">
+                     </div>   
+                        
+                    <div class="form-wrapper">
+                        <label for="poster">Poster URL:</label>
+                        <input type="url" id="poster" placeholder="https://example.com/book-cover.jpg">
+                     </div>   
+                        
+                     <div class="form-wrapper">
+                        <label for="isRead"> Have you read the book yet?</label>
+                    </div>
+
+                    <div class="form-wrapper">
+                        <div class="read-status">
+                            <span class="nr">Not read</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="book-status">
+                                    <span class="slider"></span>
+                                </label>
+                            <span class="r">Read</span>
+                        </div>
+                    </div>
+                    
+                     <div class="form-wrapper">
+                        <div class="buttons">
+                            <button type="button" class="create">Add</button>
+                            <button type="button" class="reset">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    
     <div class="main">
         <div class="main-wrapper">
             <div class="card"></div>
@@ -126,7 +124,7 @@
 </template>
 
 <template id="openBook">
-    <svg id="only" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="#ffffffff">
+    <svg id="tt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="#ffffffff">
         <path d="M55.875,94.891c0,0-7.875-11.482-27.938-11.482C9.556,83.408,0,88.751,0,88.751V14.527c0,0,9.556-5.341,27.938-5.466C48,8.926,55.875,20.667,55.875,20.667V94.891z"/>
         <path d="M64.026,94.891c0,0,7.875-11.482,27.938-11.482c18.382,0,27.938,5.343,27.938,5.343V14.527c0,0-9.556-5.341-27.938-5.466C71.901,8.926,64.026,20.667,64.026,20.667V94.891z"/>
         <path d="M60.091,118c0,0-12.091-17.425-32.153-17.425C9.556,100.575,0,105.918,0,105.918v-8.893c0,0,9.556-5.341,27.938-5.466C48,91.424,60.091,109.107,60.091,109.107V118z"/>
@@ -136,7 +134,7 @@
 
 
 <template id="closedBook">
-    <svg id="only" fill="#ffffffff"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 400 400"      >
+    <svg id="tt" fill="#ffffffff"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 400 400"      >
         <path d="M347.766,  335.73c0,18.91-12.314,35.001-29.35,40.669V246.652h-19.289c-25.395,0-46.053-20.658-46.053-46.053 c0-25.396,  20.658-46.055,46.053-46.055h19.289V23.601c17.033,5.668,29.35,21.758,29.35,40.669v90.276h21.422V64.27 c0-35.493-28.771-64.27-64.27-64.27H95.075c-35.496,0-64.27,28.776-64.27,64.27v271.46c0,35.492,28.773,64.27,64.27,64.27h209.843 c35.496,0,64.27-28.776,64.27-64.27v-89.078h-21.422V335.73z"></path> <path d="M365.963,171.406h-62.354c-10.223,0-19.223,5.303-24.414,13.298c8.033,0.828,14.297,7.614,14.297,15.864 c0,8.223-6.223,14.986-14.215,15.852c5.201,7.926,14.162,13.174,24.332,13.174h62.354c1.785,0,3.232-1.447,3.232-3.232V174.64 C369.195,172.854,367.748,171.406,365.963,171.406z"></path> 
     </svg>
 </template>

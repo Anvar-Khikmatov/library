@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Macondo&family=Milonga&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Orbitron&family=Roboto:wght@300&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&family=Satisfy&family=Special+Elite&display=swap');
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box; 
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 :root{
@@ -15,14 +18,16 @@
 .container{
     display: grid;
     height: 100vh;
-    width: 100vw;
     grid-template-columns: minmax(250px, 20%) 1fr;
     grid-template-rows: 100px 1fr;
 }
 
 .header{
     background-color: #24273a;
-    /* z-index: 1; */
+    grid-column: 2; 
+    grid-row: 1;
+    position: sticky;
+    z-index: 100;
 }   
 
 
@@ -38,13 +43,14 @@
     
 }
 
-.svg{
+.book-svg{
     height: 70%;
     width: 4rem;
 }
-.svg svg{
+.book-svg svg{
     height: 100%;
     width: 100%;
+    display: block;
 }
 
 .name{
@@ -55,6 +61,9 @@
     align-items: center;
     color: white;
     font-size: clamp(20px, 1.8vw, 32px );
+    font-family: "Milonga", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .dark-mode{
@@ -83,9 +92,6 @@ body.daymode form input{
     border: 2px solid var(--header-main);
 }
 
-body.daymode .create{
-    background-color: var(--header-main);
-}
 
 body.daymode #sun {
   display: none;
@@ -113,17 +119,19 @@ body.daymode #moon {
 }
 
 
-.dark-mode:hover, .github:hover{
+ .dark-mode:hover, .github:hover{
     cursor: pointer;
-    filter: brightness(60%);
+    filter: brightness(0%);
 }
 
 
 
 .sidebar{
     background-color: #1e2030;
-    grid-row: 1 / span 2;
+    grid-column: 1;
+    grid-row: 1 / 3;
     max-height: 100vh;
+    overflow-y: auto; 
     color: white;
 }
 
@@ -133,14 +141,13 @@ body.daymode #moon {
     display: flex;
     flex-direction: column;
     padding: 20% 12%;
-    gap: 15%;
+    gap: 12%;
 }
 
 .library-stats{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* border: 1px solid white; */
 }
 
 .library{
@@ -156,7 +163,6 @@ body.daymode #moon {
 .form{
     display: flex;
     flex-direction: column;
-    /* border: 1px solid white; */
     height: 100%; 
 }
 
@@ -165,7 +171,6 @@ form{
     flex-direction: column;
     margin-bottom: 2rem;
     row-gap: 6%;
-    /* height: 100%; */
 }
 
 form p{
@@ -176,6 +181,7 @@ form p{
 .form-wrapper{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     row-gap: 5px;
 }
 
@@ -204,7 +210,7 @@ form p{
   display: block;
   width: 100%;
   height: 100%;
-  background-color: red; /* track color */
+  background-color: red;
   border-radius: 3px;
   transition: 0.3s;
 }
@@ -253,31 +259,59 @@ input[type=number]::-webkit-outer-spin-button {
 form input{
     height: 30px;
     border-radius: 10px;
-    border: 2px solid var(--btn-border)
+    border: 2px solid var(--btn-border);
+    font-size: clamp(14px, 1vw, 19px);
+    padding-left: 6px;
+}
+
+.form-wrapper .buttons{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.buttons button{
+    width: 40%;
+    height: 4.2vh;
 }
 
 .create{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 30px; 
     border-radius: 10px;
-    font-size: 2rem;
     color: white;
     background-color: var(--btn-border);
-    border: none;
+    border: 2px solid rgb(49, 200, 135);
 }
-
 .create:hover{
     filter: brightness(120%);
     cursor: pointer;
 }
 
+.reset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--header-main);
+    border: 2px solid rgb(167, 57, 40);
+}
+.reset:hover{
+    filter: brightness(120%);
+    cursor: pointer;
+}
 
+
+
+
+
+                                /* Main */
 .main{
     background-color: #181926;
-    grid-column: 2 / span 3;
+    grid-column: 2;
+    grid-row: 2;
     overflow-y: auto;  
 }
 
@@ -286,13 +320,13 @@ form input{
 }
 
 
-
 .card{
     display: grid;
     grid-template-columns: repeat(4, minmax(180px, 20%));
     grid-auto-flow: row;
     grid-auto-rows: 300px;
     row-gap: 30px;
+    column-gap: 20px;
     justify-content: space-between;
 }
 
@@ -306,10 +340,11 @@ form input{
     justify-content: space-between;
     height: 100%;
     width: 100%;
-    border: 1px solid black;
     background-color: rgb(100, 107, 107);
     padding: 10%;
     border-radius: 15px;
+    box-shadow: -3px 3px 4px rgb(87, 86, 86);
+    
 }
 
 
@@ -318,25 +353,34 @@ form input{
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: filter 0.4s ease;
+  transition:  0.7s ease;
+}
+
+.book-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0); 
+  transition: background 0.7s ease;
 }
 
 
 .book-info{
   position: absolute;
+  height: 100%;
+  width: 100%;
   inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 5%;
-  transition: opacity 0.5s ease;
-  background: rgba(35, 34, 34, 0.5); 
   color: rgb(255, 255, 255);
 }
 
 .no-cover :is(.removeBtn, .year-output, .author-output){
     opacity: 0;
-    transition: opacity 0.4s  ease;
+    transition:  0.3s  ease;
+    
 }
 .no-cover:hover :is(.removeBtn, .year-output, .author-output, .toggleStatusBtn) { 
     opacity: 1;
@@ -345,16 +389,19 @@ form input{
 
 .has-cover :is(.removeBtn, .title-output, .year-output, .author-output){
     opacity: 0;
-    transition: opacity 0.4s  ease;
+    transition:  0.3s  ease;
 }
 .has-cover:hover :is(.removeBtn, .title-output, .year-output, .author-output, .toggleStatusBtn){
     opacity: 1;
 }
 
 .has-cover:hover .book-cover{
-    filter: blur(4px)
-    
+    filter: blur(7px);
 }
+
+.has-cover:hover .book-cover::after {
+  background: rgba(0, 0, 0, 0.35); 
+} 
 
 
 .removeBtn{ 
@@ -362,6 +409,7 @@ form input{
     width: 24px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .toggleStatusBtn{
@@ -369,10 +417,13 @@ form input{
     width: 24px;
     background-color: transparent;
     border: none;
-    opacity: 0.5;
-    transition: opacity 0.4s ease;
+    opacity: 0.6;
+    transition:  0.3s ease;
+    cursor: pointer;
 }
-#only{
+
+
+#tt{
     width: 80%;
     height: 100%;
 }
@@ -395,15 +446,87 @@ form input{
 
 
 
+.link{
+    text-decoration: none;
+    color: white;
+    font-size: 1.3em;
+    font-family: "EB Garamond", serif;
+    font-weight: 800;
+    font-optical-sizing: auto;
+}
+
+.link:hover{
+    color: rgb(15, 192, 133);
+}
+
+.daymode .link:hover{
+    color: red;
+}
+
+
 .title-output{
-    
+    text-align: center;
 }
 
-.year-output{
 
+
+
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto auto; 
+    height: auto; 
+  }
+  
+.header { 
+    grid-column: 1; 
+    grid-row: 1; 
+    position: sticky; 
+    top: 0;
+  }
+
+  .sidebar { 
+    grid-column: 1; 
+    grid-row: 2; 
+    height: fit-content; 
+    overflow-y: visible;
+  }
+    .sidebar-wrapper{
+        height: fit-content;
+        padding: 8% 8%;
+        row-gap: 3vh;
+    }
+    .form form{
+        row-gap: 2vh;
+    }
+  
+  
+  .main { 
+    grid-column: 1; 
+    grid-row: 3;
+    height: auto;
+    overflow-y: visible;
+    padding-bottom: 30vh;
+  }
+    .main-wrapper{
+       padding: 10% 8%;
+       height: auto;
+    }
+
+    .card{    
+        grid-template-columns: repeat(3, clamp(140px, 18vw, 200px));
+        grid-auto-rows: clamp(180px, 37vh, 250px);
+    }
 }
 
-.author-output{
 
+@media (max-width: 768px){
+    .card{
+        grid-template-columns: repeat(2, clamp(140px, 40vw, 200px));
+        grid-auto-rows: clamp(180px, 30vh, 250px);
+    }
 }
+
+
 
